@@ -205,7 +205,7 @@
     <string name="assistant_dialog_confirm_phone_number_message">Jste si jistý(á), že vaše telefonní číslo je %s?</string>
     <string name="assistant_account_login">Přihlásit se</string>
     <string name="assistant_scan_qr_code">Naskenovat QR kód</string>
-    <string name="assistant_login_third_party_sip_account">Použít SIP účet třetí strany</string>
+    <string name="assistant_login_third_party_sip_account">Use a custom SIP account</string>
     <string name="assistant_login_third_party_sip_account_title">SIP účet třetí strany</string>
     <string name="assistant_login_using_single_sign_on">Jednotné přihlášení (SSO)</string>
     <string name="assistant_login_cant_parse_address_toast">Neplatná SIP adresa!</string>

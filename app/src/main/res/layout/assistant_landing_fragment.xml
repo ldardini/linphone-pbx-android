@@ -90,6 +90,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     style="@style/header_style"
                     android:id="@+id/sip_identity_label"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="18dp"
@@ -102,6 +103,7 @@
                 <androidx.appcompat.widget.AppCompatEditText
                     style="@style/default_text_style"
                     android:id="@+id/sip_identity"
+                    android:visibility="gone"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="16dp"
@@ -122,6 +124,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     style="@style/header_style"
                     android:id="@+id/password_label"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
@@ -135,6 +138,7 @@
                 <androidx.appcompat.widget.AppCompatEditText
                     style="@style/default_text_style"
                     android:id="@+id/password"
+                    android:visibility="gone"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="16dp"
@@ -155,6 +159,7 @@
                 <ImageView
                     android:id="@+id/eye"
                     android:onClick="@{() -> viewModel.toggleShowPassword()}"
+                    android:visibility="gone"
                     android:layout_width="@dimen/icon_size"
                     android:layout_height="0dp"
                     android:padding="4dp"
@@ -171,6 +176,7 @@
                     android:id="@+id/login"
                     android:onClick="@{() -> viewModel.login()}"
                     android:enabled="@{viewModel.loginEnabled &amp;&amp; !viewModel.registrationInProgress, default=false}"
+                    android:visibility="gone"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
@@ -188,6 +194,7 @@
                     style="@style/default_text_style_600"
                     android:id="@+id/forgotten_password"
                     android:onClick="@{forgottenPasswordClickListener}"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -206,6 +213,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     style="@style/default_text_style"
                     android:id="@+id/or"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="28dp"
@@ -222,6 +230,7 @@
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_marginStart="16dp"
+                    android:visibility="gone"
                     android:background="?attr/color_main2_200"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/or"
@@ -232,6 +241,7 @@
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_marginEnd="16dp"
+                    android:visibility="gone"
                     android:background="?attr/color_main2_200"
                     app:layout_constraintStart_toEndOf="@id/or"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -244,7 +254,7 @@
                     android:onClick="@{qrCodeClickListener}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="22dp"
+                    android:layout_marginTop="40dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:paddingStart="20dp"
@@ -257,7 +267,7 @@
                     app:layout_constraintWidth_max="@dimen/button_max_width"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/or" />
+                    app:layout_constraintTop_toBottomOf="@id/title" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     style="@style/secondary_button_label_style"
@@ -286,7 +296,7 @@
                     android:text="@string/assistant_no_account_yet"
                     android:textSize="14sp"
                     android:textColor="?attr/color_main2_700"
-                    android:visibility="@{viewModel.hideCreateAccount ? View.GONE : View.VISIBLE}"
+                    android:visibility="gone"
                     app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/register"
@@ -306,7 +316,7 @@
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp"
                     android:text="@string/assistant_account_register"
-                    android:visibility="@{viewModel.hideCreateAccount ? View.GONE : View.VISIBLE}"
+                    android:visibility="gone"
                     app:layout_constraintVertical_bias="1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/no_account_yet"

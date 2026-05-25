@@ -147,7 +147,7 @@
     <string name="assistant_account_register_push_notification_not_received_error">Push-сповіщення з токеном авторизації не отримано упродовж 5 секунд, спробуйте пізніше</string>
     <string name="assistant_login_third_party_sip_account_title">Сторонній обліковий запис SIP</string>
     <string name="assistant_account_creation_sms_confirmation_explanation">Ми надіслали код підтвердження на ваш номер телефону %1$s.\n\nБудь ласка, введіть код підтвердження нижче:</string>
-    <string name="assistant_login_third_party_sip_account">Використати сторонній обліковий запис SIP</string>
+    <string name="assistant_login_third_party_sip_account">Use a custom SIP account</string>
     <string name="assistant_no_account_yet">Ще немає облікового запису?</string>
     <string name="assistant_third_party_sip_account_warning_explanation">Для деяких функцій потрібен обліковий запис &appName;, такі як груповий обмін повідомленнями, відеоконференції…\n\nЦі функції приховані, якщо ви реєструєтесь за допомогою стороннього облікового запису SIP.\n\nЩоб увімкнути їх у комерційному проєкті, зв’яжіться з нами.</string>
     <string name="assistant_permissions_subtitle">Щоб повною мірою користуватися &appName;, вам потрібно надати застосунку наступні дозволи:</string>
