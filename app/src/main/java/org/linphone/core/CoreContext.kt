@@ -696,11 +696,6 @@ class CoreContext
                 removePortFromSipIdentity()
             }
 
-            if (core.logCollectionUploadServerUrl.isNullOrEmpty()) {
-                Log.w("$TAG Logs sharing server URL not set, fixing that")
-                core.logCollectionUploadServerUrl = "https://files.linphone.org/http-file-transfer-server/hft.php"
-            }
-
             corePreferences.linphoneConfigurationVersion = currentVersion
             Log.w(
                 "$TAG Core configuration updated to version [${corePreferences.linphoneConfigurationVersion}]"
@@ -1237,15 +1232,33 @@ class CoreContext
         Log.i("$TAG Enabling hiding empty chat rooms")
         core.config.setBool("misc", "hide_empty_chat_rooms", true)
 
-        // Replace old URLs by new ones
+        // Remove legacy Linphone-hosted cloud URLs from existing configurations.
         if (corePreferences.checkForUpdateServerUrl == "https://www.linphone.org/releases") {
-            corePreferences.checkForUpdateServerUrl = "https://download.linphone.org/releases"
+            corePreferences.checkForUpdateServerUrl = ""
+        }
+        if (corePreferences.checkForUpdateServerUrl == "https://download.linphone.org/releases") {
+            corePreferences.checkForUpdateServerUrl = ""
         }
         if (core.fileTransferServer == "https://www.linphone.org:444/lft.php") {
-            core.fileTransferServer = "https://files.linphone.org/http-file-transfer-server/hft.php"
+            core.fileTransferServer = ""
+        }
+        if (core.fileTransferServer == "https://files.linphone.org/http-file-transfer-server/hft.php") {
+            core.fileTransferServer = ""
         }
         if (core.logCollectionUploadServerUrl == "https://www.linphone.org:444/lft.php") {
-            core.logCollectionUploadServerUrl = "https://files.linphone.org/http-file-transfer-server/hft.php"
+            core.logCollectionUploadServerUrl = ""
+        }
+        if (core.logCollectionUploadServerUrl == "https://files.linphone.org/http-file-transfer-server/hft.php") {
+            core.logCollectionUploadServerUrl = ""
+        }
+        if (core.config.getString("sip", "rls_uri", "").orEmpty() == "sips:rls@sip.linphone.org") {
+            core.config.setString("sip", "rls_uri", "")
+        }
+        if (core.config.getString("app", "default_domain", "").orEmpty() == "sip.linphone.org") {
+            core.config.setString("app", "default_domain", "")
+        }
+        if (corePreferences.contactsFilter == "sip.linphone.org") {
+            corePreferences.contactsFilter = "*"
         }
 
         Log.i("$TAG IMDN threshold set to 1 (meaning only sender will receive delivery & read notifications)")

@@ -355,7 +355,7 @@ class CorePreferences
 
     @get:AnyThread
     val defaultDomain: String
-        get() = config.getString("app", "default_domain", "sip.linphone.org")!!
+        get() = config.getString("app", "default_domain", "")!!
 
     @get:AnyThread
     val darkModeAllowed: Boolean
