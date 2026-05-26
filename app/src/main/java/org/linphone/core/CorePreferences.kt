@@ -338,10 +338,20 @@ class CorePreferences
 
     @get:AnyThread @set:WorkerThread
     var pushNotificationCompatibleDomains: Array<String>
-        get() = config.getStringList("app", "push_notification_domains", arrayOf("sip.linphone.org"))
+        get() = config.getStringList("app", "push_notification_domains", arrayOf("*"))
         set(value) {
             config.setStringList("app", "push_notification_domains", value)
         }
+
+    @get:AnyThread
+    val allDomainsSupportPushNotifications: Boolean
+        get() = "*" in pushNotificationCompatibleDomains
+
+    @AnyThread
+    fun isPushNotificationCompatibleDomain(domain: String?): Boolean {
+        return domain != null &&
+            (allDomainsSupportPushNotifications || domain in pushNotificationCompatibleDomains)
+    }
 
     @get:AnyThread
     val defaultDomain: String

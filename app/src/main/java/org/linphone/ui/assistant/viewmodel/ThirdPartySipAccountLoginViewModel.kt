@@ -256,6 +256,7 @@ class ThirdPartySipAccountLoginViewModel
             }
             Log.i("$TAG Created proxy server SIP address [${proxyServerAddress?.asStringUriOnly()}]")
             accountParams.serverAddress = proxyServerAddress
+            accountParams.pushNotificationAllowed = core.isPushNotificationAvailable
 
             val outboundProxyValue = outboundProxy.value.orEmpty().trim()
             val outboundProxyAddress = if (outboundProxyValue.isNotEmpty()) {

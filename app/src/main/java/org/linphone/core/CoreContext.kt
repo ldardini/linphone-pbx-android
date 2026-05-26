@@ -1183,7 +1183,9 @@ class CoreContext
     private fun disablePushNotificationsFromThirdPartySipAccounts() {
         for (account in core.accountList) {
             val params = account.params
-            val pushAvailableForDomain = params.identityAddress?.domain in corePreferences.pushNotificationCompatibleDomains
+            val pushAvailableForDomain = corePreferences.isPushNotificationCompatibleDomain(
+                params.identityAddress?.domain
+            )
             if (!pushAvailableForDomain && params.pushNotificationAllowed) {
                 val clone = params.clone()
                 clone.pushNotificationAllowed = false

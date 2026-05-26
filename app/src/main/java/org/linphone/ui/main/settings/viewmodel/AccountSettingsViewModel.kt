@@ -139,7 +139,9 @@ class AccountSettingsViewModel
                 account = found
 
                 val params = account.params
-                val pushAvailableForDomain = params.identityAddress?.domain in corePreferences.pushNotificationCompatibleDomains
+                val pushAvailableForDomain = corePreferences.isPushNotificationCompatibleDomain(
+                    params.identityAddress?.domain
+                )
                 isDomainInPushNotificationCompatibleList.postValue(pushAvailableForDomain)
                 if (pushAvailableForDomain) {
                     pushNotificationsAvailable.postValue(core.isPushNotificationAvailable)
