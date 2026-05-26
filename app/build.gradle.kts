@@ -122,7 +122,7 @@ android {
         variant.outputs
             .map { it as com.android.build.gradle.internal.api.BaseVariantOutputImpl }
             .forEach { output ->
-                output.outputFileName = "linphone-android-${variant.buildType.name}-$gitVersion.apk"
+                output.outputFileName = "linphone-android-${variant.name}-$gitVersion.apk"
             }
     }
 
@@ -201,6 +201,21 @@ android {
                 }
             }
             buildConfigField("Boolean", "CRASHLYTICS_ENABLED", crashlyticsAvailable.toString())
+        }
+    }
+
+    flavorDimensions += "skin"
+    productFlavors {
+        create("mirtapbx") {
+            dimension = "skin"
+            buildConfigField("String", "SKIN", "\"mirtapbx\"")
+            resValue("string", "skin_name", "mirtapbx")
+        }
+
+        create("genericpbx") {
+            dimension = "skin"
+            buildConfigField("String", "SKIN", "\"genericpbx\"")
+            resValue("string", "skin_name", "genericpbx")
         }
     }
 
